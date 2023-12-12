@@ -8,13 +8,24 @@ namespace EnitytFrameworrkTutorial.Models.Entities
     {
         [Key]
         public int MaBienSo { get; set; }
+
+        [ForeignKey("Tinh")]
         public int MaTinh { get; set; }
-        public string MaHuyen { get; set; } = string.Empty;
+
+        public virtual Tinh Tinh { get; set; } = new();
+
+        //[ForeignKey("Huyen")]
+        public int MaHuyen { get; set; }
+
+        public virtual Huyen Huyen { get; set; } = new();
+
         public int SoDinhDanh { get; set; }
-        public string ChuoiDinhDanh { get; set; } = string.Empty;
+
+        public string ChuoiDinhDanh => $"{MaTinh} - {MaHuyen} - {SoDinhDanh}";
 
         [ForeignKey("XeMay")]
         public int MaXeMay { get; set; }
-        public XeMay XeMay { get; set; } = null!;
+
+        public virtual XeMay XeMay { get; set; } = new();
     }
 }

@@ -7,8 +7,11 @@ namespace EnitytFrameworrkTutorial.Models.Entities
     {
         [Key]
         public int MaXe { get; set; }
+
         public string TenXe { get; set; } = string.Empty;
 
-        public BienSo? BienSo { get; set; }
+        public int PhanKhoi { get; set; }
+
+        public virtual BienSo BienSo { get; set; } = new();
     }
 }
